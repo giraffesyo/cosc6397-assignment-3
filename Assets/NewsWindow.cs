@@ -44,12 +44,21 @@ public class NewsWindow : MonoBehaviour
     IEnumerator DownloadImage(string url)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+        DownloadHandlerTexture textureDl = new DownloadHandlerTexture(true);
+        request.downloadHandler = textureDl;
         yield return request.SendWebRequest();
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2));
-            spriteRenderer.sprite = sprite;
+            Texture2D t = textureDl.texture;
+
+            RectTransform rt = (RectTransform)spriteRenderer.transform;
+            rt.localScale = new Vector3(0.0005f, 0.0005f, 1f);
+            // RectTransform rt = (RectTransform)spriteRenderer.transform;
+            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height),
+                           Vector2.zero, 1f);
+
+            spriteRenderer.sprite = s;
+            spriteRenderer.bounds.SetMinMax(new Vector3(rt.rect.xMin, rt.rect.yMin, 0), new Vector3(rt.rect.xMax, rt.rect.yMax, 0));
         }
         else
         {
@@ -58,4 +67,29 @@ public class NewsWindow : MonoBehaviour
 
 
     }
+
+    // public void ScaleImage(RectTransform rt){
+    //      var topRightCorner =  Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    //     var worldSpaceWidth = topRightCorner.x * 2;
+    //     var worldSpaceHeight = topRightCorner.y * 2;
+
+    //     var spriteSize = gameObject.GetComponent<SpriteRenderer>().bounds.size;
+
+    //     var scaleFactorX = worldSpaceWidth / spriteSize.x;
+    //     var scaleFactorY = worldSpaceHeight / spriteSize.y;
+
+    //         // handle aspect ratio
+    //         if (scaleFactorX > scaleFactorY)
+    //         {
+    //             scaleFactorY = scaleFactorX;
+    //         }
+    //         else
+    //         {
+    //             scaleFactorX = scaleFactorY;
+    //         }
+
+
+    //     gameObject.transform.localScale = new Vector3(scaleFactorX, scaleFactorY, 1);
+    // }
+
 }
