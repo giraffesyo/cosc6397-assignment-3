@@ -8,9 +8,11 @@ public class NewsButton : MonoBehaviour
     // Start is called before the first frame update
 
     private NewsItem news;
+    //TODO: Generate this window later so we can have multiple news windows open
+    private NewsWindow newsWindow;
     void Start()
     {
-
+        newsWindow = FindObjectOfType<NewsWindow>();
     }
 
     public void SetNewsItem(NewsItem item)
@@ -28,6 +30,8 @@ public class NewsButton : MonoBehaviour
 
     public void NewsButtonTouched()
     {
-        Debug.Log("news item clicked");
+        newsWindow.SetTitle(news.title);
+        newsWindow.SetSummary(news.summary);
+        newsWindow.SetImage(news.image);
     }
 }

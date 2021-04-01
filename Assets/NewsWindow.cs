@@ -14,6 +14,8 @@ public class NewsWindow : MonoBehaviour
     [SerializeField]
     private TextMeshPro summaryText;
 
+
+
     void Start()
     {
 

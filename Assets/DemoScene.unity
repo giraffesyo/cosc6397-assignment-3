@@ -22420,6 +22420,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6165125171297595072, guid: 6953bd73929f84aba9ad0da15a10ef7f, type: 3}
   m_PrefabInstance: {fileID: 6165125170727217572}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644218225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2815949922243019979, guid: 6953bd73929f84aba9ad0da15a10ef7f, type: 3}
+  m_PrefabInstance: {fileID: 6165125170727217572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf2cd472be1246cfab857f2506bfaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649011610
 GameObject:
   m_ObjectHideFlags: 0
@@ -29045,3 +29056,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridObjectCollection: {fileID: 4807664970648258758}
   PressableItemPrefab: {fileID: 5986432879891751795, guid: e160d45488dc040dabd95c9924fdf525, type: 3}
+  newsWindow: {fileID: 1644218225}

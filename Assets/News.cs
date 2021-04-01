@@ -18,6 +18,7 @@ public class News : MonoBehaviour
     private GridObjectCollection gridObjectCollection;
     [SerializeField]
     private GameObject PressableItemPrefab;
+
     void Start()
     {
         newsUrl = $"https://api.polygon.io/v1/meta/symbols/{ticker}/news?perpage=50&page=1&apiKey={apiKey}";
@@ -70,4 +71,5 @@ public class NewsItem
     public string timestamp;
     public string title;
     public string source;
+    public string image;
 }
