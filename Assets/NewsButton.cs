@@ -44,6 +44,7 @@ public class NewsButton : MonoBehaviour
             GameObject sceneContent = GameObject.Find("SceneContent");
             GameObject newsWindowObj = Instantiate(NewsWindowPrefab, sceneContent.transform);
             newsWindowObj.transform.position = newsWindowPostion;
+            newsWindowObj.transform.localPosition = new Vector3(newsWindowObj.transform.localPosition.x, newsWindowObj.transform.localPosition.y, transform.localPosition.z);
             newsWindow = newsWindowObj.GetComponent<NewsWindow>();
             newsWindow.SetTitle(news.title);
             newsWindow.SetSummary(news.summary);
