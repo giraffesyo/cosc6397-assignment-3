@@ -51,6 +51,8 @@ public class News : MonoBehaviour
                 currentOffset += yOffset;
                 TextMeshPro newsTmp = newsObj.GetComponentInChildren<TextMeshPro>();
                 newsTmp.text = newsItem.title;
+                NewsButton btnScript = newsObj.GetComponent<NewsButton>();
+                btnScript.SetNewsItem(item: newsItem);
             });
         }
         else
